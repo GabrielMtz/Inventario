@@ -1,0 +1,40 @@
+﻿@model E_Producto
+
+
+<h1>Editar Producto: @Model.Descripcion</h1>
+
+<form action="/Home/Editar" method="post">
+
+	<input type="hidden" name="IdProducto" value="@Model.idProducto" ></input>
+
+	<label>Descripcion</label>
+	<input type="text" name="Descripcion" class="form-control "value="@Model.Descripcion"/>
+	<br>
+
+	<label>Precio</label>
+	<input type="text" name="Precio" class="form-control" value="@Model.Precio"/>
+	<br />
+
+	<label>Fecha de Ingreso</label>
+	<input type="date" name="FechaIngreso" class="form-control" value="@Model.FechaIngreso.ToString("yyyy-MM-dd")"/>
+	<br />
+
+	<label>¿Disponible?</label>
+	<div>
+		@if(Model.Disponible==true){
+		<input type="radio" name="Disponible" value="true" checked/>
+		<label>Si</label>
+			<input type="radio" name="Disponible" value="false" />
+			<label>No</label>
+		}else{
+			<input type="radio" name="Disponible" value="true"  />
+			<label>Si</label>
+			<input type="radio" name="Disponible" value="false" checked />
+			<label>No</label>
+		}
+	</div>
+
+	<button type="submit" class="btn btn-dark">Actualizar </button>
+	
+</form>
+

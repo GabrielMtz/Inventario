@@ -1,0 +1,36 @@
+﻿<h1> Registrar Nuevo Producto</h1>
+
+@if (TempData["validacion"] != null)
+{
+	<div class="alert alert-warning">
+		
+		@*el helper ayuda en conjunto con raw pueda leer html desde el controlador*@
+		@Html.Raw(TempData["validacion"])
+	</div> 
+}
+
+<form action="/Home/Agregar" method="post">
+	
+	<label class="form-label">Descripcion</label>
+	<input type="text" name="Descripcion" class="form-control"required/>
+	<br>
+
+	<label>Precio</label>
+	<input type="text" name="Precio" class="form-control" required/>
+	<br />
+
+	<label >Fecha de Ingreso</label>
+	<input type="date" name="FechaIngreso" class="form-control" required/>
+	<br />
+
+	<label>¿Disponible?</label>
+	<div>
+		<input type="radio" name="Disponible" value="true" required/>
+		<label  >Si</label>
+
+		<input type="radio" name="Disponible" value="false"/>
+		<label>No</label>
+	</div>
+
+	<button type="submit" class="btn btn-success">Registrar</button>
+</form>

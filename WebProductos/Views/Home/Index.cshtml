@@ -1,0 +1,71 @@
+﻿@model List<E_Producto>
+
+    <style>
+        @* define con un . una clase en css*@
+        .mi-clase{
+            color:#4a44;
+            font-size:24px;
+            padding: 10px;
+            align-content:center;
+        }
+
+
+
+    </style>
+
+
+
+<h2 class="mi-clase">INVENTARIO</h2>
+
+
+@if (TempData["mensaje"] != null)
+{
+    <div class=" alert alert-success">
+
+        <h6>@TempData["mensaje"]</h6>
+
+    </div>
+}
+    @if (TempData["error"] !=null)
+    {
+        <div class=" alert alert-danger">
+
+            <h6>Ocurrio un error: @TempData["error"]</h6>
+
+        </div>
+
+}
+<table class="table  table-info table-bordered  table-hover "> 
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Fecha Ingreso</th>
+            <th>Fecha de Caducidad</th>
+            <th>¿Esta disponible?</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (E_Producto producto in Model)
+        {
+           <tr>
+               <td>@producto.idProducto</td>
+               <td>@producto.Descripcion</td>
+               <td>@producto.Precio</td>
+               <td>@producto.FechaIngreso.ToString("dd/MMMM/yyyy")</td>
+               <td>@producto.FechaCaducidad.ToString("dd/MMMM/yyyy")</td>
+               <td>@producto.DisponibleTexto </td>
+               <td>
+                    <a href="/Home/IrAgregar" class="btn btn-primary btn-sm">Agregar</a>
+                   <a href="/Home/IrEditar?idProducto=@producto.idProducto" class="btn btn-success btn-sm">Editar</a>
+                   <a href="/Home/Eliminar?idProducto=@producto.idProducto" class="btn btn-danger btn-sm">Eliminar</a> 
+               </td>
+           </tr> 
+        }
+        
+
+    </tbody>
+
+</table>
