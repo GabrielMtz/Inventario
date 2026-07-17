@@ -20,7 +20,7 @@ namespace WebProductos.Datos
             try
             {
                 conexion.Open();
-                string query = "SELECTt  idProducto,Descripcion,Precio,fechaIngreso,disponible FROM Productos ";
+                string query = "SELECT  idProducto,Descripcion,Precio,fechaIngreso,disponible FROM Productos ";
                 SqlCommand comando = new SqlCommand(query, conexion);
                 //creamos un objeto de la clase sqldatareader y ahi guardamos el resultado de ejecutar el query 
                 SqlDataReader reader = comando.ExecuteReader();//este comando ayuda a leer cada fila y si existen datos continua con la siguiente 

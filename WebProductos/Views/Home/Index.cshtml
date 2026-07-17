@@ -15,7 +15,7 @@
 
 
 
-<h2 class="mi-clase">INVENTARIO</h2>
+<h2 class="mi-clase">INVENTARIO Actualizado </h2>
 
 
 @if (TempData["mensaje"] != null)
@@ -58,7 +58,7 @@
                <td>@producto.FechaCaducidad.ToString("dd/MMMM/yyyy")</td>
                <td>@producto.DisponibleTexto </td>
                <td>
-                    <a href="/Home/IrAgregar" class="btn btn-primary btn-sm">Agregar</a>
+                    <a href="/Home/IrAgregar" class="btn btn-danger btn-sm">Agregar</a>
                    <a href="/Home/IrEditar?idProducto=@producto.idProducto" class="btn btn-success btn-sm">Editar</a>
                    <a href="/Home/Eliminar?idProducto=@producto.idProducto" class="btn btn-danger btn-sm">Eliminar</a> 
                </td>
